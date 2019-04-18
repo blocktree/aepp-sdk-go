@@ -8,6 +8,7 @@ package models
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 
 	strfmt "github.com/go-openapi/strfmt"
 
@@ -26,7 +27,7 @@ type SpendTxJSON struct {
 
 // Type gets the type of this subtype
 func (m *SpendTxJSON) Type() string {
-	return "SpendTxJSON"
+	return "SpendTx"
 }
 
 // SetType sets the type of this subtype
@@ -76,6 +77,7 @@ func (m *SpendTxJSON) UnmarshalJSON(raw []byte) error {
 
 	if base.Type != result.Type() {
 		/* Not the type we're looking for. */
+		fmt.Printf("result.Type() = %s\n", result.Type())
 		return errors.New(422, "invalid type value: %q", base.Type)
 	}
 
