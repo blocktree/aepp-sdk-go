@@ -1,6 +1,7 @@
 package aeternity
 
 import (
+	"encoding/hex"
 	"fmt"
 
 	"github.com/aeternity/aepp-sdk-go/generated/models"
@@ -16,6 +17,8 @@ func SignEncodeTx(kp *Account, txRaw []byte, networkID string) (signedEncodedTx,
 	if err != nil {
 		return
 	}
+	fmt.Printf("txRaw = %s\n", hex.EncodeToString(txRaw))
+	fmt.Printf("sigRaw = %s\n", hex.EncodeToString(sigRaw))
 	// encode the message using rlp
 	rlpTxRaw, err := createSignedTransaction(txRaw, [][]byte{sigRaw})
 	// encode the rlp message with the prefix

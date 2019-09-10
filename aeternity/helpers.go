@@ -1,6 +1,7 @@
 package aeternity
 
 import (
+	"encoding/hex"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -120,7 +121,7 @@ func waitForTransaction(nodeClient *apiclient.Node, txHash string) (blockHeight 
 func (ae *Ae) BroadcastTransaction(txSignedBase64 string) (err error) {
 	// Get back to RLP to calculate txhash
 	txRLP, _ := Decode(txSignedBase64)
-
+	fmt.Printf("txRLP: %s\n", hex.EncodeToString(txRLP))
 	// calculate the hash of the decoded txRLP
 	rlpTxHashRaw, _ := hash(txRLP)
 	// base58/64 encode the hash with the th_ prefix
