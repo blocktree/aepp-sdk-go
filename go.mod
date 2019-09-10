@@ -1,4 +1,4 @@
-module github.com/aeternity/aepp-sdk-go/v5
+module github.com/blocktree/aepp-sdk-go
 
 require (
 	github.com/BurntSushi/toml v0.3.0 // indirect
