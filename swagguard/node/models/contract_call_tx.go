@@ -21,7 +21,7 @@ type ContractCallTx struct {
 
 	// ABI version
 	// Required: true
-	AbiVersion *string `json:"abi_version"`
+	AbiVersion *uint16 `json:"abi_version"`
 
 	// amount
 	// Required: true
